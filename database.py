@@ -46,10 +46,10 @@ users = get_data('users')
 products = get_data('products')
 sales = get_data('sales')
 stock = get_data('stock')
-print(products)
-print(sales)
-print(stock)
-print(users)
+# print(products)
+# print(sales)
+# print(stock)
+# print(users)
 
 
 #insert using functions
@@ -59,7 +59,7 @@ def insert_products():
 
     return products
 
-insert_products()
+# insert_products()
 
 #products function
 def insert_products(product_details):
@@ -69,8 +69,8 @@ def insert_products(product_details):
 product1 = ('laptop',50000,60000)
 product2 = ('soda',40,50)
 
-insert_products(product1)
-insert_products(product2)
+# insert_products(product1)
+# insert_products(product2)
 
 
 #sales function
@@ -81,8 +81,8 @@ def insert_sales(sales_details):
 sale1 = (95,50)
 sale2 = (96,60)
 
-insert_sales(sale1)
-insert_sales(sale2)
+# insert_sales(sale1)
+# insert_sales(sale2)
 
 #stock function
 def insert_stock(stock_details):
@@ -92,8 +92,8 @@ def insert_stock(stock_details):
 stock1 = (95,100)
 stock2 = (96,200)
 
-insert_stock(stock1)
-insert_stock(stock2)
+# insert_stock(stock1)
+# insert_stock(stock2)
 
 #users function
 def insert_users(users_details):
@@ -103,8 +103,8 @@ def insert_users(users_details):
 user1 = ('Husna Mwinyi','housny15@gmail.com',+254700539097,2307)
 user2 = ('Alex Kimani','kim15@gmail.com',+254703388064,2305)
 
-insert_users(user1)
-insert_users(user2)
+# insert_users(user1)
+# insert_users(user2)
 
 def sales_per_product():
     cur.execute('''
@@ -148,8 +148,8 @@ def insert_products(product_details):
 product1 = ('powerbank',8000,10000)
 product2 = ('speaker',3000,4000)
 
-insert_products(product1)
-insert_products(product2)
+# insert_products(product1)
+# insert_products(product2)
 
 
 #sales function
@@ -160,8 +160,8 @@ def insert_sales(sales_details):
 sale1 = (97,70)
 sale2 = (98,80)
 
-insert_sales(sale1)
-insert_sales(sale2)
+# insert_sales(sale1)
+# insert_sales(sale2)
 
 #stock function
 def insert_stock(stock_details):
@@ -171,8 +171,8 @@ def insert_stock(stock_details):
 stock1 = (97,200)
 stock2 = (98,300)
 
-insert_stock(stock1)
-insert_stock(stock2)
+# insert_stock(stock1)
+# insert_stock(stock2)
 
 #users function
 def insert_users(users_details):
@@ -182,8 +182,8 @@ def insert_users(users_details):
 user1 = ('Mima Said','mima15@gmail.com','+254700539097',2307)
 user2 = ('Kevin Alukwe','kevin15@gmail.com','+254703388064',2305)
 
-insert_users(user1)
-insert_users(user2)
+# insert_users(user1)
+# insert_users(user2)
 
 
 
