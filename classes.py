@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Person:
     def __init__(self,name,age,email,address,dob):
         self.name = name
@@ -64,6 +66,52 @@ bank2 = BankAccount(98234,25000,"Juma Said",'2005-06-15')
 bank2.deposit()
 bank2.withdraw()
 bank2.display_info()
+
+today = datetime.now()
+#print(today)
+class BankAccount:
+    def __init__(self,account_number,balance,owner_name,date_opened=today):
+        
+        self.account_number = account_number
+        self.balance = balance
+        self.owner_name = owner_name
+        self.date_opened = date_opened
+
+    def display_info(self):
+        print(f"Account details: {self.account_number},- {self.balance},- {self.owner_name},- {self.date_opened}")
+
+bankacc1 = BankAccount('ACC001234',0,"Jane Doe")
+bankacc1.display_info()
+
+
+
+class Car:
+    def __init__(self,brand,model,year,fuel_capacity,fuel_level,is_running):
+        self.brand = brand
+        self.model = model
+        self.year = year
+        self.fuel_capacity = fuel_capacity
+        self.fuel_level = fuel_level
+        self.is_running = is_running
+
+    def start(self):
+        print(f"{self.brand} starts")
+
+    def stop(self):
+        print(f"{self.brand} stops")
+
+    def refuel(self):
+        print(f"{self.brand} refuels")
+
+    def drive(self):
+        print(f"{self.brand} drives")
+
+    def display_car_info(self):
+        print(f"Car details: {self.brand},- {self.model},- {self.year},- {self.fuel_capacity},- {self.fuel_level},- {self.is_running}")
+
+car1 = Car("Audi","Audi Q5",2025,"65L","50L","True")
+car1.start()
+car1.display_car_info()
 
 
 
