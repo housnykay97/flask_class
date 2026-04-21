@@ -109,7 +109,7 @@ class Car:
     def display_car_info(self):
         print(f"Car details: {self.brand},- {self.model},- {self.year},- {self.fuel_capacity},- {self.fuel_level},- {self.is_running}")
 
-car1 = Car("Audi","Audi Q5",2025,"65L","50L","True")
+car1 = Car("Audi","Q5",2025,"65L","50L","True")
 car1.start()
 car1.display_car_info()
 
