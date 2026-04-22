@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <p>This is the products page..welcome</p>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block title %} Products {% endblock %}
+{% block content %}
+<div>
+<p>This is the products page</p>
+<p>Any other related product content..</p>
+<p>More products content</p>
+
+</div>
+
+{% endblock %}
