@@ -2,9 +2,39 @@
 {% block title %} Home {% endblock %}
 {% block content %}
 
-<div>
-<p>This is the home page</p>
-
+<div class="text-center py-5 mt-4">
+    <div class="container" id="MyDuka">
+        <h1 class="display-4 mt-4 text-secondary" style="font-weight: 900;">MY<span
+                style="color: rgb(45, 44, 44);">DUKA</span></h1>
+        <p class="fs-6 fst-italic text-secondary">
+            Shop safely and conveniently online with us.
+        </p>
+        <a class="btn btn-primary btn-lg" href="#contact">Get Started ></a>
+    </div>
 </div>
+
+<div class="container-fluid" id="Home">
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <p class="text-center fst-italic text-secondary"> ~ About Us</p>
+            <p style="font-size: large; color: black;">MyDuka is a leading pan-African e-commerce
+                platform founded in 2020, operating a
+                marketplace, logistics
+                network, and payment service across 11 African countries. Connects local and international vendors to
+                consumers.</p>
+            <p style="font-size: large; color: black;">Listed on the NYSE, it connects over 8 million
+                consumers with 70,000+ sellers,
+                offering
+                electronics, fashion, and home goods with over $1B in GMV in 2023. MyDuka is your number one trusted
+                online shopping mall in Africa. We offer products that suit your style and budget. We deliver
+                countrywide.
+            </p>
+        </div>
+        <div class="col-md-6 text-center">
+            <img class="img-fluid rounded shadow" src="../static/images/prod_4.jpg" alt="product1">
+        </div>
+    </div>
+</div>
+
 
 {% endblock %}
