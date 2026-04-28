@@ -36,6 +36,16 @@ def get_stock():
 stock_data = get_stock()
 # print(stock_data)
 
+#fetching users
+def get_users():
+    cur.execute("select * from users")
+    users = cur.fetchall()
+    return users
+
+users_data = get_users()
+# print(users_data)
+
+
 # reusable function
 def get_data(table):
     cur.execute(f"select * from {table}")
@@ -46,7 +56,7 @@ users = get_data('users')
 products = get_data('products')
 sales = get_data('sales')
 stock = get_data('stock')
-print(products)
+# print(products)
 # print(sales)
 # print(stock)
 # print(users)
@@ -184,6 +194,19 @@ user2 = ('Kevin Alukwe','kevin15@gmail.com','+254703388064',2305)
 
 # insert_users(user1)
 # insert_users(user2)
+
+
+#check if user exists using their email
+def check_user_exists(email):
+    cur.execute("select exists(select 1 from users where email = %s)",(email,))
+    check_users = cur.fetchone()
+    check_users[0]
+    return check_users[0]
+
+exists = check_user_exists("mima15@gmail.com")
+print(exists)
+
+
 
 
 

@@ -22,10 +22,10 @@
 
 </head>
 
-<body>
-    <div class="container-fluid">
+<body class="bg-body-tertiary">
+    <div class="container" style="margin-bottom: 100px;">
         <nav class="navbar navbar-expand-lg bg-dark fixed-top navbar-dark opacity-75">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="justify-content-start">
                     <a class="navbar-brand fw-bold" href="/">MyDuka</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -62,17 +62,36 @@
                     </div>
                 </div>
                 <div class="justify-content-end">
-                    <button type="button" class="btn btn-secondary">Shop Now</button>
+                    <li class="nav-item">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-light btn-sm" data-bs-target="#exampleModal">
+                            Learn More
+                        </button>
+                    </li>
 
                 </div>
             </div>
         </nav>
     </div>
 
+    <div>
+        {% with messages= get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert-{{category}} alert-dismissible" role="alert">
+            {{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
     {% block content %}
 
     {% endblock %}
-    <div class="bg-dark py-4 mt-5 text-white">
+
+    <div class="container-fluid bg-dark py-4 mt-5 text-white">
         <div class="container text-center text-md-start">
             <div class="row">
                 <div class="col-md-6">
