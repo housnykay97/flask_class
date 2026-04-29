@@ -198,14 +198,25 @@ user2 = ('Kevin Alukwe','kevin15@gmail.com','+254703388064',2305)
 
 #check if user exists using their email
 def check_user_exists(email):
-    cur.execute("select exists(select 1 from users where email = %s)",(email,))
-    check_users = cur.fetchone()
-    check_users[0]
-    return check_users[0]
+    query='select exists(select 1 from users where email = %s)'
+    cur.execute(query,(email,))
+    user_data = cur.fetchone()
+    return user_data[0]
 
-exists = check_user_exists("mima15@gmail.com")
-print(exists)
+# exists = check_user_exists("milas156@gmail.com")
+# print(exists)
 
+def available_stock(pid):
+    cur.execute("select sum(stock_quantity) from stock where pid = %s",(pid,))
+    total_stock = cur.fetchone()[0] or 0
+
+    cur.execute("select sum(quantity) from sales where pid = %s",(pid,))
+    total_sold = cur.fetchone()[0] or 0
+
+    return total_stock - total_sold
+
+check_stock = available_stock(100)
+print(check_stock)
 
 
 
