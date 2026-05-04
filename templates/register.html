@@ -2,52 +2,29 @@
 {% block title %} Register {% endblock %}
 {% block content %}
 
-<div class="container">
-    <p>This is the registration page</p>
-
-    <div>
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Sign Up
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Register here</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="/register_here">
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Full Name</label>
-                                <input type="text" name="f_name" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Phone Number</label>
-                                <input type="tel" name="phone_number" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Sign Up</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+<div class="container" style="margin-top: 80px;">
+    <h3>This is the registration page</h3>
+    <form method="post" action="/register">
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Full Name</label>
+            <input type="text" required name="f_name" class="form-control w-50" id="exampleInputPassword1">
         </div>
-    </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" required name="email" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+            <input type="tel" required name="phone_number" class="form-control w-50" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" required name="password" class="form-control w-50" id="exampleInputPassword1">
+        </div>
+        <div class="modal-footer mt-3 justify-content-start">
+            <button type="submit" class="btn btn-primary">Register</button>
+        </div>
+    </form>
 </div>
 
 {% endblock %}
