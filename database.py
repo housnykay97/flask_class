@@ -203,8 +203,8 @@ def check_user_exists(email):
     user_data = cur.fetchone()
     return user_data
 
-existing_user = check_user_exists('milly00@gmail.com')
-print('user',existing_user)
+# existing_user = check_user_exists('milly00@gmail.com')
+# print('user',existing_user)
 
 def available_stock(pid):
     cur.execute("select sum(stock_quantity) from stock where pid = %s",(pid,))
@@ -217,6 +217,16 @@ def available_stock(pid):
 
 check_stock = available_stock(100)
 print(check_stock)
+
+
+square_number = [ i for i in range(1,11) if i**i == i]
+print(square_number)
+
+words = ["apple", "mango", "kiwi", "egg", "cherry", "bread", "me"]
+new_words = [i for i in words if len(i) >= 5]
+print(new_words)
+
+
 
 
 
