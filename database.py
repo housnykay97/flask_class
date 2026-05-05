@@ -219,7 +219,7 @@ check_stock = available_stock(100)
 print(check_stock)
 
 
-square_number = [ i for i in range(1,11) if i**i == i]
+square_number = [ i**2 for i in range(1,11)]
 print(square_number)
 
 words = ["apple", "mango", "kiwi", "egg", "cherry", "bread", "me"]
