@@ -198,7 +198,7 @@ user2 = ('Kevin Alukwe','kevin15@gmail.com','+254703388064',2305)
 
 #check if user exists using their email
 def check_user_exists(email):
-    query="select * from users where users.email = %s"
+    query="select * from users where email = %s"
     cur.execute(query,(email,))
     user_data = cur.fetchone()
     return user_data
