@@ -1,74 +1,62 @@
-BookItKE
-Deposit-based booking system
--It applies to dozens of businesses in Kenya
+kodiAuto
+Rental management System in Kenya
 
-BookItKE - a simple booking + payment SaaS for Kenyan salons, barbershops, and small clinics. 
+Landlords and property managers face different "headaches" daily. Moving from manual record-keeping to a digital system solves several high-friction problems, therefore making this app a vital tool.
 
-The concept
-Small businesses still take bookings over WhatsApp and phone calls. The app enables them to have a simple link where customers can book time slots and pay a 20% deposit via M-Pesa STK Push. The owner gets a dashboard to manage appointments.
-The deposit acts as a cancellation fee to protect the service provider's time.
+These are the problems this system solves:
+1. The "Paper Trail" Problem
+Landlords often rely on physical notebooks or disparate WhatsApp chats to track who has paid. This leads to lost records, disputes over deposits, and difficulty tracking lease expiry dates.
+Therefore, the system creates a Centralized Cloud Database where all tenant data, digital lease copies, and payment histories are stored in one place, accessible from a phone or laptop.
 
-INCLUDE PRODUCTS
-If a user registers as a "Retail Store," the dashboard hides the "Calendar" and shows "Low Stock Alerts" instead.
+2. Rent Collection & Reconciliation
+Manually checking bank statements or M-Pesa messages to see who paid and then manually updating a ledger is time-consuming and prone to human error.
+Thus, Automated Payment Tracking will solve that. By integrating payment methods (like M-Pesa), the system can automatically mark a month as "Paid" and generate a digital receipt the moment the transaction clears.
+When calculating the Total Balance due for a tenant, the system will be running a summation of all charges minus the payments:
 
-For a product-only business (like a small kiosk or a clothing boutique), the “Service” and “Appointment” tables remains empty or hidden
-e.g.
-Chemists/Pharmacies (Product focus)
-Mechanics (Hybrid: Spare parts + Labor)
-Massage Parlors (Service focus)
+B = \sum (Rent + Fees) - \sum (Payments)
 
-The app solves the biggest headaches for the owners as follows:
-
-It addresses friction points that local small businesses face every day.
--By combining Bookings, Inventory, and M-Pesa into one tool, a business moves from "surviving" to "organized."
+Where:
+B is the current balance.
+Rent includes all recurring monthly charges.
+Fees includes late fees or utility surcharges
 
 
-1. Eliminating the "Loss of Time" (No-Show Protection)
-In a service business like a salon, time is the only thing they have to sell. When a customer doesn't show up, that hour is gone forever.
-The Problem: Customers book slots and vanish, leaving the chair empty and the stylist idle.
-The Solution: The app forces a financial commitment via an M-Pesa deposit. Because the owner triggers the "No-Show" status manually, they have the power to keep that deposit. This turns a "lost hour" into "guaranteed partial revenue."
+3. Maintenance Chaos
+Tenants call at odd hours for repairs. Landlords forget which plumber went to which house, or they lose track of whether a leaking tap was actually fixed.
+Ticketing System will solve that by tenants submitting requests through the app. The landlord can assign a "Status" (Pending, In Progress, Resolved) to each task, creating a clear history of property upkeep.
 
-2. Inventory Security & Leakage Prevention/Stock Tracking
-Many small businesses lose money because they don't know exactly how much stock they have.
+4. Financial Blind Spots
+At the end of the year, many landlords don't actually know their true profit because they haven't tracked expenses like garbage collection, security, and minor repairs against the gross rent.
+Therefore, Automated Financial Reporting will help in the calculation of the Net Operating Income (NOI) as follows;
 
-The Problem: Staff might use or sell products without recording them, or the owner forgets to restock until they are completely out.
-The Solution: By linking Sale_Items to Product stock, every sale automatically updates the inventory. The owner can see exactly how many bottles are left without being at the shop physically. This solves theft/forgetfulness. It creates accountability.
+NOI = (Gross Potential Rent – Vacancy Losses) – Operating Expenses
 
-3. Financial Clarity (The M-Pesa Bridge)
-Cash is hard to track. M-Pesa is easier, but matching an M-Pesa message to a specific customer or service is a manual nightmare.
-The Problem: Messy Accounting .At the end of the day, the owner has to scroll through 50 M-Pesa messages to figure out who paid for what.
-The Solution: The app records the mpesa_shortcode and links it directly to a Sale. This creates an automated "paper trail." When the owner looks at their Sales Reports, they aren't guessing, they are seeing verified data.
+This gives the landlord a professional view of their investment's health
 
-4. Enabling Passive Income via Online Sales
-Salon owners usually only make money when they are physically working on a client.
-The Problem: Revenue stops when the salon is closed or the chairs are full.
-The Solution: By adding the Online Product Sale and Self-Managed Delivery options, the owner can sell hair products or accessories at any time of day. They can fulfill orders in their "downtime" between appointments, creating a second stream of income that doesn't depend on a chair being occupied.
+5. Communication Gaps
+Sending individual reminders for rent or notices for scheduled maintenance is tedious. 
 
-5. Professionalism and Scalability
-Small businesses often look "informal" because they use notebooks and manual records.
-The Problem: It's hard to get a business loan or grow without professional records.
-The Solution: The app provides a digital "Receipt" and a history of all transactions. If a bank asks for their turnover, the owner can export a report. It moves them from a "kiosk" mindset to a "professional enterprise" mindset.
+Hence the Automated Notifications will come in handy where the system sends automated SMS or push notifications three days before rent is due and, on the day, when the rent is due.
 
-6. Delivery
-The Problem: Limited Reach
-The Solution: Making the products reach more people anywhere in the country generating more sales
+Entity Relationship Diagram (ERD) structure.
+Landlords (Users): landlord_id (PK), name, email, phone_number, password.
+One-to-Many with Properties. One landlord can own many properties/buildings.
 
-NB: Building this as a Universal System, it isn’t just helping one salon; it’s providing a "Business-in-a-Box" for any Kenyan entrepreneur with a phone and a product/service to sell.
+Properties: property_id (PK), landlord_id (FK), name, address, property_type (Residential/Commercial).
+One-to-Many with Units. One building contains multiple units.
 
+Units: unit_id (PK), property_id (FK), unit_number, rent_amount, status (Vacant/Occupied).
+One-to-One with Leases. At any given time, one unit usually has one active lease.
 
+Tenants: tenant_id (PK), first_name, last_name, email, phone_number, id_number.
+One-to-Many with Leases. A tenant can rent multiple units or renew contract thus multiple leases.
 
-DATABASE STRUCTURE
-Entity-Relationship Diagram (ERD) with detailed relationships
+Leases: lease_id (PK), unit_id (FK), tenant_id (FK), start_date, end_date, deposit_amount.
+One-to-Many with Payments. One lease generates many monthly payment records.
 
-Business to Service: A One-to-Many relationship. One business can offer multiple services (e.g., hair styling, manicure, massage).
-Business to Appointment: A One-to-Many relationship. One business can have many appointments scheduled.
-Service to Appointment: A One-to-Many relationship. One specific service type can be linked to many different appointments over time.
-Business to Product: A One-to-Many relationship. One business can offer multiple products.
-Business to Sale: A One-to-Many relationship. One business can carry out many sales.
-Product to Sale_Item: A One-to-Many relationship. One product can have many sale items.
-Service to Sale_Item: A One-to-Many relationship. One service many sale items.
-Sale to Sale_Item: A One-to-Many relationship. One sale can have many sale items.
-*Sale to Delivery: A One-to-One relationship. One sale one delivery. *(many sales can have one delivery though)
+Payments: payment_id (PK), lease_id (FK), amount, payment_date, payment_method (M-Pesa/Cash/Bank), transaction_id.
+One-to-Many with Leases. One Contract can have multiple monthly installments.
+
 
 
 
